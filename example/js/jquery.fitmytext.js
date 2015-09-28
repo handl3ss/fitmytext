@@ -16,8 +16,6 @@
      maxFontSize: false //set 43 and its work correctly
     }, options);
 
-    this.each(function(){
-        
         var $div = $(this);
         if(!$.fn.fittext.standartDivFontSize){
                 var standartDivFontSize = parseFloat(settings.maxFontSize || $div.css('font-size'), 10);
@@ -67,8 +65,7 @@
 
         }).triggerHandler('keyup.fittext');
   
-            
-    })
+
 
      return this;
 
