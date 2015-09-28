@@ -6,7 +6,7 @@
  * @version   0.0.1
  * @copyright (c) 2015 Oleksandr Bezruchenko
  * @homepage  https://github.com/handl3ss/fitmytext
- * @example   https://fitmytext.github.com
+ * @example   https://handl3ss.github.io/fitmytext
  */
 (function($){
   jQuery.fn.fittext = function(options){
