@@ -2,7 +2,8 @@
   
 ## Usage
 
-![](http://i.imgur.com/sjUTjDn.gifv)
+![Example of usage]
+(https://github.com/handl3ss/fitmytext/blob/master/example/gif/example.gif)
 
 ```js
 <input type="text" class="form-control" id="txtInput">
