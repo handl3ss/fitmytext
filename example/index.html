@@ -67,34 +67,27 @@
     <script src="js/jquery.fitmytext.js"></script>
     <script>
         function init(){
-          var slider = document.getElementById('slider');
-          slider.onchange = function(){
-              localStorage.setItem("sliderValue",slider.value);
-          }
+          var jqSlider = $('#slider');
+          jqSlider.change(function(){
+              localStorage.setItem("sliderValue",jqSlider.val());
+          });
 
-          var input = document.getElementById('txtInput')
-          input.onkeyup = function(){
-              localStorage.setItem("inputValue", input.value);
-          }
+         var jqInput = $('#txtInput');
+          jqInput.keyup(function(){
+              localStorage.setItem("inputValue", jqInput.val());
+          });
 
           if (localStorage.getItem("inputValue") != null) {
-               document.getElementById('txtInput').value = localStorage.getItem("inputValue");
+               jqInput.val(localStorage.getItem("inputValue"));
                $('#outputDiv').fittext();
           }
           if (localStorage.getItem("sliderValue") != null) {
-               console.log(parseInt(localStorage.getItem("sliderValue"),10));
-               document.getElementById('slider').value = parseInt(localStorage.getItem("sliderValue"),10);
+               jqSlider.val(parseInt(localStorage.getItem("sliderValue"),10));
           }
           
           $('#outputDiv').fittext();
         }
-
-        if (window.addEventListener)
-            window.addEventListener("load", init, false);
-        else if (window.attachEvent)
-            window.attachEvent("onload", init);
-        else window.onload = init;
-
+       $(document).ready(init);
         
     </script>
 </body>
