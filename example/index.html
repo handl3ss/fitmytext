@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Fit My Text JQuery Plugin Example">
+    <meta name="author" content="Bezruchenko Alex">
+
+    <title>Fit My Text - Example</title>
+
+    <!-- Example CSS --> 
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/fitmytext.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+<body>
+
+
+    <div class="jumbotron vertical-center">  
+                             
+          <div class="container">
+           <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1 text-center header-info">
+                        <h2 class="section-heading">Put text to input and view result in output div</h2>
+                        <hr style="border-top: 1px solid grey;">
+                    </div>
+                </div>
+           <div class="row">
+
+               <div class="col-sm-offset-5 col-sm-2 col-xs-8 col-xs-offset-2 ">
+                    <div class="form-group">
+                        <input id="slider" type ="range" min ="0" max="200" step ="25" value ="100"/> 
+                    </div>
+                </div>
+
+           </div>
+            <div class="row">
+                  <div class="col-sm-offset-5 col-sm-2 col-xs-8 col-xs-offset-2">
+                        <div class="form-group">
+                          <label for="txtInput">Here you can input text:</label>
+                          <input type="text" class="form-control" id="txtInput">
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-5 col-sm-2 col-xs-8 col-xs-offset-2">
+                      <label for="outputDiv">Output Div:</label>
+                      <div id="outputDiv">222222</div>
+                     
+                    </div>
+            </div>
+
+            
+          </div>
+    </div>
+
+
+        <!-- jQuery -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.fitmytext.js"></script>
+    <script>
+        function init(){
+          var slider = document.getElementById('slider');
+          slider.onchange = function(){
+              localStorage.setItem("sliderValue",slider.value);
+          }
+
+          var input = document.getElementById('txtInput')
+          input.onkeyup = function(){
+              localStorage.setItem("inputValue", input.value);
+          }
+
+          if (localStorage.getItem("inputValue") != null) {
+               document.getElementById('txtInput').value = localStorage.getItem("inputValue");
+               $('#outputDiv').fittext();
+          }
+          if (localStorage.getItem("sliderValue") != null) {
+               console.log(parseInt(localStorage.getItem("sliderValue"),10));
+               document.getElementById('slider').value = parseInt(localStorage.getItem("sliderValue"),10);
+          }
+          
+          $('#outputDiv').fittext();
+        }
+
+        if (window.addEventListener)
+            window.addEventListener("load", init, false);
+        else if (window.attachEvent)
+            window.attachEvent("onload", init);
+        else window.onload = init;
+
+        
+    </script>
+</body>
+</html>
