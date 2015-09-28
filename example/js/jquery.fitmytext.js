@@ -9,8 +9,8 @@
  * @example   https://handl3ss.github.io/fitmytext
  */
 (function($){
-  jQuery.fn.fittext = function(options){
-  jQuery.fn.fittext.options = settings;  
+  $.fn.fittext = function(options){
+  $.fn.fittext.options = settings;  
     var settings = $.extend({
      minFontSize: 5,
      maxFontSize: false //set 43 and its work correctly
@@ -19,13 +19,13 @@
     this.each(function(){
         
         var $div = $(this);
-        if(!jQuery.fn.fittext.standartDivFontSize){
+        if(!$.fn.fittext.standartDivFontSize){
                 var standartDivFontSize = parseFloat(settings.maxFontSize || $div.css('font-size'), 10);
-                jQuery.fn.fittext.standartDivFontSize = standartDivFontSize;  
+                $.fn.fittext.standartDivFontSize = standartDivFontSize;  
         } 
         var divFontSize = parseFloat(settings.maxFontSize || $div.css('font-size'), 10);
-        if(jQuery.fn.fittext.standartDivFontSize > divFontSize){
-            divFontSize =jQuery.fn.fittext.standartDivFontSize
+        if($.fn.fittext.standartDivFontSize > divFontSize){
+            divFontSize =$.fn.fittext.standartDivFontSize
         }
         var width   = $div.width();
         var clone   = $div.data('divFitTester-clone');
