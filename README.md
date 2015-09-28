@@ -5,6 +5,8 @@
 ![Example of usage]
 (https://github.com/handl3ss/fitmytext/blob/master/example/gif/example.gif)
 
+Live Example: http://handl3ss.github.io/fitmytext/
+
 ```js
 <input type="text" class="form-control" id="txtInput">
 <div id="outputDiv"></div>
