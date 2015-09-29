@@ -8,6 +8,7 @@
 		height: 50px;
 		font-size:43px;
 	    border-radius: 3px;
+	    white-space: nowrap;
 }
 #txtInput{
 	width:160px;
