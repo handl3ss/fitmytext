@@ -9,12 +9,12 @@
  * @example   https://handl3ss.github.io/fitmytext
  */
 (function($){
-  $.fn.fittext = function(options){
-  $.fn.fittext.options = settings;  
-    var settings = $.extend({
-     minFontSize: 5,
-     maxFontSize: false //set 43 and its work correctly
-    }, options);
+        $.fn.fittext = function(options){
+        $.fn.fittext.options = settings;  
+          var settings = $.extend({
+           minFontSize: 5,
+           maxFontSize: false
+          }, options);
 
         var $div = $(this);
         if(!$.fn.fittext.standartDivFontSize){
@@ -36,13 +36,14 @@
                 clone = $('<div></div>', {
                     css : {
                         fontSize   : $div.css('font-size'),
-                        fontFamily : $div.css('font-family'), // font family like Arial , Helvetica
-                        fontStyle  : $div.css('font-style'), // normal, italic and etc
-                        fontWeight : $div.css('font-weight'), // bold
-                        fontVariant: $div.css('font-variant'), // CAPITAL LETTER or not
+                        fontFamily : $div.css('font-family'), 
+                        fontStyle  : $div.css('font-style'), 
+                        fontWeight : $div.css('font-weight'), 
+                        fontVariant: $div.css('font-variant'),
                         position   : 'absolute',
                         left       : '-9999px',
-                        visibility : 'hidden'
+                        visibility : 'hidden',
+                        whiteSpace : 'nowrap'
                     }
                 }).insertAfter($div);
 
@@ -57,11 +58,11 @@
               currentFontSize = parseInt( $div.css('font-size'), 10 ),
               fontSize = Math.floor(currentFontSize * ratio);
 
-              if (fontSize > divFontSize) { fontSize = divFontSize; }
-              if (fontSize < settings.minFontSize) { fontSize = settings.minSize; }
+          if (fontSize > divFontSize) { fontSize = divFontSize; }
+          if (fontSize < settings.minFontSize) { fontSize = settings.minSize; }
 
-              $div.css('font-size', fontSize);
-              clone.css('font-size', fontSize);
+          $div.css('font-size', fontSize);
+          clone.css('font-size', fontSize);
 
         }).triggerHandler('keyup.fittext');
   
